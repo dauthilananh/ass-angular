@@ -1,0 +1,17 @@
+<div class="card mb-4 box-shadow"  *ngFor="let product of products;">
+    <img class="card-img-top" [src]="product.image" alt="Card image cap">
+    <!-- <img src="https://ik.imagekit.io/tvlk/blog/2018/11/mon-an-vat-ngon-ha-noi-1.jpg" alt=""> -->
+    <div class="card-body" style="text-align: center;">
+        <h4 style="color: rgb(73, 135, 207);">{{product.name}}</h4>
+        <h6 style="color: rgb(182, 97, 97);">{{product.price}}.000 vnđ</h6>
+        <!-- <p class="card-text">{{product.desc}}</p> -->
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group" style="padding-left: 120px; padding-top: 10px;">
+                <button class="btn btn-outline-success" routerLink="/product/{{product.id}}">
+                    Detail
+                </button>
+            </div>
+            <small class="text-muted">9 mins</small>
+        </div>
+    </div>
+</div>

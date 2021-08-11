@@ -1,0 +1,51 @@
+<div class="row">
+  <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+    <app-dashboard></app-dashboard>
+  </nav>
+
+  <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3">
+      <h1 class="h2">Danh sách sản phẩm</h1>
+      <div class="btn-toolbar mb-2 mb-md-0">
+        <button type="button" class="btn btn-sm btn-outline-primary" routerLink="/product/add">
+          Thêm sản phẩm
+        </button>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-striped table-sm">
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Ảnh</th>
+            <th>Tên</th>
+            <th>Giá</th>
+            <th>Tình trạng</th>
+            <th>Mô tả</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products; index as i">
+            <td>{{i + 1}}</td>
+            <td><img [src]="product.image" style="width: 95px; height: 80px;" /></td>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}.000 vnđ</td>
+            <td>{{product.status ? 'Còn hàng': 'Hết hàng'}}</td>
+            <td>{{product.desc}}</td>
+            <td width="200">
+              <button class="btn btn-danger" (click)="removeItem(product.id)">
+                Delete
+              </button>
+              <button class="btn btn-info mx-2" routerLink="/product/{{product.id}}/edit">
+                Edit
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+</div>
